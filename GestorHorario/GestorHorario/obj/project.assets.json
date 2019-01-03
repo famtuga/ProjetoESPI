@@ -12536,11 +12536,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Utilizador\\Desktop\\ProjetoESPI\\GestorHorario\\GestorHorario\\GestorHorario.csproj",
+      "projectUniqueName": "C:\\Users\\Utilizador\\Desktop\\ProjetoPrincipal\\GestorHorario\\GestorHorario\\GestorHorario.csproj",
       "projectName": "GestorHorario",
-      "projectPath": "C:\\Users\\Utilizador\\Desktop\\ProjetoESPI\\GestorHorario\\GestorHorario\\GestorHorario.csproj",
+      "projectPath": "C:\\Users\\Utilizador\\Desktop\\ProjetoPrincipal\\GestorHorario\\GestorHorario\\GestorHorario.csproj",
       "packagesPath": "C:\\Users\\Utilizador\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Utilizador\\Desktop\\ProjetoESPI\\GestorHorario\\GestorHorario\\obj\\",
+      "outputPath": "C:\\Users\\Utilizador\\Desktop\\ProjetoPrincipal\\GestorHorario\\GestorHorario\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
