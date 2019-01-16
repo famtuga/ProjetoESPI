@@ -38,7 +38,7 @@ namespace GestorHorario.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                //Adicionar Turista na Trail4HealthDB
+                //Adicionar Aluno na GestorHorarioDB
                 var aluno = new Aluno { Nome = model.Nome, Email = model.Email, Ano = model.Ano };
                 _context.Add(aluno);
                 await _context.SaveChangesAsync();
