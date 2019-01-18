@@ -98,3 +98,5 @@ C:\Users\Sourav\Desktop\MVCEventCalendar\MVCEventCalendar\bin\System.Web.Mvc.xml
 C:\Users\Sourav\Desktop\MVCEventCalendar\MVCEventCalendar\obj\Debug\MVCEventCalendar.csprojResolveAssemblyReference.cache
 C:\Users\Sourav\Desktop\MVCEventCalendar\MVCEventCalendar\obj\Debug\MVCEventCalendar.dll
 C:\Users\Sourav\Desktop\MVCEventCalendar\MVCEventCalendar\obj\Debug\MVCEventCalendar.pdb
+C:\Users\Utilizador\Desktop\ProjetoPrincipal\Part2-MVCEventCalendar\MVCEventCalendar\MVCEventCalendar\obj\Debug\MVCEventCalendar.dll
+C:\Users\Utilizador\Desktop\ProjetoPrincipal\Part2-MVCEventCalendar\MVCEventCalendar\MVCEventCalendar\obj\Debug\MVCEventCalendar.pdb
