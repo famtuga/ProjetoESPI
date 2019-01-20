@@ -1,0 +1,62 @@
+﻿@model Horarios.Models.Disciplina
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+            <h4>Criar disciplina</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group">
+                <label>Nome da Disciplina</label>
+                <input name="Nome" class="form-control" type="text" />
+            </div>
+
+            <div class="form-group">
+                <label>Ano</label>
+                <select class="form-control" name="Ano">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Professor</label>
+                <select class="form-control" id="dropdownProf" name="Professor">
+                  
+                </select>
+            </div>
+
+
+            <button type="submit" class="btn btn-default">Registar Disciplina</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    
+    
+    <script>
+
+        $.ajax({
+            type: "GET",
+            url: "/backoffice/GetProfessores",
+            success: function (data) {
+                $.each(data, function (i, v) {
+                    $('#dropdownProf').append('<option value=' + v.professorId + '>' + v.nome + '<option>');
+                });
+            },
+            error: function (error) {
+                alert('failed');
+            }
+        });
+
+        $(document).ready(function () {
+
+        })
+        </script>
+}
