@@ -12537,11 +12537,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Utilizador\\Desktop\\Horarios\\Horarios\\Horarios.csproj",
+      "projectUniqueName": "C:\\Users\\Utilizador\\Desktop\\ProjetoPrincipal\\Horarios\\Horarios\\Horarios.csproj",
       "projectName": "Horarios",
-      "projectPath": "C:\\Users\\Utilizador\\Desktop\\Horarios\\Horarios\\Horarios.csproj",
+      "projectPath": "C:\\Users\\Utilizador\\Desktop\\ProjetoPrincipal\\Horarios\\Horarios\\Horarios.csproj",
       "packagesPath": "C:\\Users\\Utilizador\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Utilizador\\Desktop\\Horarios\\Horarios\\obj\\",
+      "outputPath": "C:\\Users\\Utilizador\\Desktop\\ProjetoPrincipal\\Horarios\\Horarios\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

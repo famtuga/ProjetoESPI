@@ -11,6 +11,7 @@ namespace Horarios.Models
     {
         public ApplicationUser()
         {
+
         }
     }
 }

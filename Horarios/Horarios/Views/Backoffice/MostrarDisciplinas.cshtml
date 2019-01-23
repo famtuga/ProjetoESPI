@@ -1,0 +1,63 @@
+﻿
+@model Horarios.Models.Disciplina
+@{
+    ViewData["Title"] = "MostrarDisciplinas";
+}
+
+<h2>MostrarDisciplinas</h2>
+
+
+
+<div class="bread_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <ol class="breadcrumb">
+                    <li><a href="/">#</a></li>
+                    <li class="active">Disciplinas</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+    <div class="container">
+        <div class="row">
+            <section class="page col-sm-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                Estudantes
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Nome)
+                            </dd>
+                            <dt>
+                                Duração do Trilho
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Ano)
+                            </dd>
+                            <dt>
+                                Avaliação
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.professor)
+                            </dd>
+                            <dt>
+                                Trilho
+                            </dt>
+                           
+                        </dl>
+                        <div class="form-group">
+
+                            <button class="btn btn-toolbar"><a asp-action="Edit" asp-route-id="@Model.DisciplinaId">Editar</a></button>
+                            <button class="btn btn-info"><a asp-action="ba">Voltar à lista</a></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</form>

@@ -9,6 +9,7 @@ using Horarios.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace Horarios.Controllers
 {
@@ -106,7 +107,22 @@ namespace Horarios.Controllers
             return Json(t);
         }
 
+       
 
+   
+        
+            public async Task<IActionResult> MostrarAlunos()
+            {
 
+                return View(await _context.Estudante.ToListAsync());
+            }
+       
+
+        [Authorize]
+        public IActionResult MostrarDisciplinas(string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
     }
 }

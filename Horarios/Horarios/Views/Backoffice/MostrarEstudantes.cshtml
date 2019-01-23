@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Horarios.Models.Estudante>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="bread_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <ol class="breadcrumb">
+                    <li><a href="/">Horarios</a></li>
+                    <li class="active">Estudante</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <section class="page col-sm-12">
+            <div class="row">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                NumeroEstudante
+                            </th>
+                            <th>
+                                Ano
+                            </th>
+                            <th>
+                                EstadoEstudante
+                            </th>
+                           <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NumeroEstudante)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Ano)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EstadoEstudante)
+                                </td>
+                               
+                                <td>
+                                    <button class="btn btn-toolbar">
+                                        <a asp-action="Edit" asp-route-id="@item.EstudanteId">Editar</a>
+                                    </button> |
+                                    <button class="btn btn-default">
+                                        <a asp-action="Details" asp-route-id="@item.EstudanteId">Detalhes</a>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>
