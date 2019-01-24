@@ -15,7 +15,12 @@ namespace Horarios.Models
 
         [StringLength(80, MinimumLength = 2)]
         public string Nome { get; set; }
+
+        [DataType(DataType.EmailAddress)]
+        [EmailAddress]
+        [Display(Name = "Email")]
         public string Email { get; set; }
+
         public int NumeroEstudante { get; set; }
         public int Ano { get; set; }
         public bool EstadoEstudante { get; set; }

@@ -12,7 +12,8 @@ namespace Horarios.Models
         public string Nome { get; set; }
         public int Ano { get; set; }
 
-        public ICollection<Professor> professor { get; set; }
+        public int ProfessorId { get; set; }
+        public Professor Professor { get; set; }
 
         public ICollection<EstudanteDisciplina> EstudanteDisciplina { get; set; }
         public ICollection<HorarioDisciplina> HorarioDisciplinas { get; set; }

@@ -13,6 +13,8 @@ using Horarios.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Horarios.Models;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Horarios.Areas.Identity.Services;
 
 namespace Horarios
 {
@@ -35,35 +37,16 @@ namespace Horarios
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<HorariosBDContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
 
-            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-        }
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+               .AddEntityFrameworkStores<HorariosBDContext>()
+               .AddDefaultTokenProviders();
 
-
-
-
-
-        //----------------------------------------------------------------------------------------------------//
-        private async Task CreateRoles(IServiceProvider serviceProvider)
-        {
-            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-            var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-            string[] rolesNames = { "Admin", "Estudante", "Professor" };
-            IdentityResult result;
-            foreach (var namesRole in rolesNames)
-            {
-                var roleExist = await roleManager.RoleExistsAsync(namesRole);
-                if (!roleExist)
-                {
-                    result = await roleManager.CreateAsync(new IdentityRole(namesRole));
-                }
-            }
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         //----------------------------------------------------------------------------------------------------//
@@ -94,8 +77,8 @@ namespace Horarios
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-       
-            
+
+            SeedData.EnsurePopulated((HorariosBDContext)serviceProvider.GetService<HorariosBDContext>(), serviceProvider);
         }
     }
 }

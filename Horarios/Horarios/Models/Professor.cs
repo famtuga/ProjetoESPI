@@ -18,13 +18,16 @@ namespace Horarios.Models
         [RegularExpression(@"([A-Za-záàâãéèêíóôõúçÁÀÂÃÉÈÍÓÔÕÚÇ\s]+)", ErrorMessage = "Só é aceitavel caracteres alfabeticos ")]
         public string Nome { get; set; }
 
+        [DataType(DataType.EmailAddress)]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
         [Range(20,80)]
         public int Idade { get; set; }
 
-        public string Email { get; set; }
-
         public string Telemovel { get; set; }
 
-        public Disciplina Disciplinas { get; set; }
+        public ICollection<Disciplina> Disciplinas { get; set; }
     }
 }

@@ -17,18 +17,20 @@ namespace Horarios.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        HorariosBDContext _context = new HorariosBDContext();
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly HorariosBDContext _context;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            HorariosBDContext context,
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
+            _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
@@ -42,6 +44,10 @@ namespace Horarios.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            [Required]
+            [Display(Name = "Username")]
+            public string Username { get; set; }
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -57,6 +63,9 @@ namespace Horarios.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+            
+            [Display(Name = "Tipo de Utilizador")]
+            public string TipoUtilizador { get; set; }
         }
 
         public void OnGet(string returnUrl = null)
@@ -64,34 +73,24 @@ namespace Horarios.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
         }
 
-
-        public async Task<IActionResult> OnPostAsync([Bind("Nome,Ano,NumeroEstudante,Email,ActivoEstudante")] Estudante e, string Nome, int Ano, int NumeroEstudante, bool ActivoEstudante, string role, string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
+
+            if(string.IsNullOrEmpty(Input.TipoUtilizador))
+            {
+                ModelState.AddModelError("TipoUtilizador", "Tipo de Utilizador invalido");
+                return Page();
+            }
+            
             if (ModelState.IsValid)
             {
-                //Adicionar Turista na Trail4HealthDB
-                if (role == "Estudante")
-                {
-                    e = new Estudante { Nome = Nome, NumeroEstudante = NumeroEstudante, Ano = Ano, Email = Input.Email, EstadoEstudante = false };
-                    _context.Add(e);
-                    await _context.SaveChangesAsync();
-                }
-                else if(role == "Professor")
-                {
-                    Professor p = new Professor { Nome = Nome, Email = Input.Email};
-                    _context.Add(p);
-                    await _context.SaveChangesAsync();
-                }
-               
-
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser { UserName = Input.Username, Email = Input.Email, EmailConfirmed = true };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    //var rest = await _userManager.AddToRoleAsync(user, "Professor");
                     _logger.LogInformation("User created a new account with password.");
-                   
+
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
@@ -102,7 +101,20 @@ namespace Horarios.Areas.Identity.Pages.Account
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    switch (Input.TipoUtilizador.ToString())
+                    {
+                        case "Estudante":
+                            _context.Estudante.Add(new Estudante() { Nome = Input.Username, Email = Input.Email });
+                            _context.SaveChanges();
+                            break;
+                        case "Professor":
+                            _context.Professor.Add(new Professor() { Nome = Input.Username, Email = Input.Email });
+                            _context.SaveChanges();
+                            break;
+                    }
+
+                    // Faz login no novo user
+                    //await _signInManager.SignInAsync(user, isPersistent: false);
                     return LocalRedirect(returnUrl);
                 }
                 foreach (var error in result.Errors)

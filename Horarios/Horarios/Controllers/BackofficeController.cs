@@ -15,7 +15,12 @@ namespace Horarios.Controllers
 {
     public class BackofficeController : Controller
     {
-        HorariosBDContext _context = new HorariosBDContext();
+        private readonly HorariosBDContext _context;
+
+        public BackofficeController(HorariosBDContext dbcontext)
+        {
+            _context = dbcontext;
+        }
 
 
         [Authorize]
@@ -36,6 +41,20 @@ namespace Horarios.Controllers
         public IActionResult Disciplinas(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Disciplinas([Bind("DisciplinaId,Nome,Ano,ProfessorId")] Disciplina disciplina, string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            if (ModelState.IsValid)
+            {
+                _context.Disciplina.Add(disciplina);
+                _context.SaveChanges();
+                return View();
+            }
+
             return View();
         }
 
@@ -67,7 +86,7 @@ namespace Horarios.Controllers
                         v.Datafim =  h.Datafim;
                         v.Descricao = h.Descricao;
                         v.DiaInteiro = h.DiaInteiro;
-                        v.TemaCor = h.TemaCor;
+                        v.Ano = h.Ano;
                     }
                 }
                 else
@@ -111,7 +130,7 @@ namespace Horarios.Controllers
 
    
         
-            public async Task<IActionResult> MostrarAlunos()
+            public async Task<IActionResult> MostrarEstudantes()
             {
 
                 return View(await _context.Estudante.ToListAsync());
@@ -122,7 +141,7 @@ namespace Horarios.Controllers
         public IActionResult MostrarDisciplinas(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
-            return View();
+            return View(_context.Disciplina.Include(d=>d.Professor).ToList());
         }
     }
 }

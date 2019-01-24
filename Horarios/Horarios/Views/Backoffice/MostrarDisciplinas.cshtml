@@ -1,5 +1,5 @@
 ﻿
-@model Horarios.Models.Disciplina
+@model List<Horarios.Models.Disciplina>
 @{
     ViewData["Title"] = "MostrarDisciplinas";
 }
@@ -26,33 +26,34 @@
             <section class="page col-sm-12">
                 <div class="row">
                     <div class="col-lg-12">
-                        <dl class="dl-horizontal">
-                            <dt>
-                                Estudantes
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.Nome)
-                            </dd>
-                            <dt>
-                                Duração do Trilho
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.Ano)
-                            </dd>
-                            <dt>
-                                Avaliação
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.professor)
-                            </dd>
-                            <dt>
-                                Trilho
-                            </dt>
-                           
-                        </dl>
+                        @{
+                            foreach (var displina in Model)
+                            {
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <b>Disciplina: </b>
+                                                @Html.DisplayFor(model => displina.Nome)&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                            <td>
+                                                <b>Ano: </b>
+                                                @Html.DisplayFor(model => displina.Ano)&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                            <td>
+                                                <b>Professor: </b>
+                                                @Html.DisplayFor(model => displina.Professor.Nome)&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                            <td><button class="btn btn-toolbar"><a asp-action="Edit" asp-route-id="@displina.DisciplinaId">Editar</a></button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+
+                            }
+                        }
                         <div class="form-group">
 
-                            <button class="btn btn-toolbar"><a asp-action="Edit" asp-route-id="@Model.DisciplinaId">Editar</a></button>
                             <button class="btn btn-info"><a asp-action="ba">Voltar à lista</a></button>
                         </div>
                     </div>

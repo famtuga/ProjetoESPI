@@ -28,7 +28,7 @@ namespace Horarios.Models
 
         public string Descricao { get; set; }
 
-        public string TemaCor { get; set; }
+        public int Ano { get; set; }
 
         public ICollection<HorarioDisciplina> HorarioDisciplina { get; set; }
 

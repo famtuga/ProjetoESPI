@@ -168,7 +168,7 @@ using Horarios.Models;
             WriteLiteral("\r\n                                </td>\r\n                               \r\n                                <td>\r\n                                    <button class=\"btn btn-toolbar\">\r\n                                        ");
             EndContext();
             BeginContext(2487, 64, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bac3a84f088a45bb849d1db4ce22be48", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5c60444578cc45f08a33f61ba1beec61", async() => {
                 BeginContext(2541, 6, true);
                 WriteLiteral("Editar");
                 EndContext();
@@ -203,7 +203,7 @@ using Horarios.Models;
             WriteLiteral("\r\n                                    </button> |\r\n                                    <button class=\"btn btn-default\">\r\n                                        ");
             EndContext();
             BeginContext(2712, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "240930dd7dce4c5a86e12a7cbff0ac63", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "de99528b37484f108fad1acdb41b8d29", async() => {
                 BeginContext(2769, 8, true);
                 WriteLiteral("Detalhes");
                 EndContext();

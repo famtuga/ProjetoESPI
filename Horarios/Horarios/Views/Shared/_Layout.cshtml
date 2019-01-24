@@ -98,10 +98,10 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Disciplinas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/backoffice/disciplinas">Adicionar Disciplina</a>
+                                    <a asp-controller="Disciplinas" asp-action="Create">Adicionar Disciplinas</a>
                                 </li>
                                 <li>
-                                    <a href="/backoffice/mostrardisciplinas">Visualizar Disciplinas</a>
+                                    <a asp-controller="Disciplinas" asp-action="Index">Visualizar Disciplinas</a>
                                 </li>
                             </ul>
                         </li>
@@ -109,10 +109,10 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Utilizadores<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/backoffice/mostrarestudantes">Visualizar Estudantes</a>
+                                    <a asp-controller="Estudantes" asp-action="Index">Visualizar Estudantes</a>
                                 </li>
                                 <li>
-                                    <a href="/backoffice/mostrarprofessores">Visualizar Professores</a>
+                                    <a asp-controller="Professors" asp-action="Index">Visualizar Professores</a>
                                 </li>
                             </ul>
                         </li>
@@ -120,7 +120,7 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Horarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Visualizar Provas</a>
+                                    <a asp-controller="Backoffice" asp-action="Index">Visualizar Provas</a>
                                 </li>
                                 
                             </ul>
