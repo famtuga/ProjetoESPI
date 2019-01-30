@@ -122,3 +122,8 @@ C:\Users\Utilizador\Desktop\ProjetoPrincipal\Horarios\Horarios\obj\Debug\netcore
 C:\Users\Utilizador\Desktop\ProjetoPrincipal\Horarios\Horarios\obj\Debug\netcoreapp2.1\Razor\Views\HorarioDisciplinas\Details.g.cshtml.cs
 C:\Users\Utilizador\Desktop\ProjetoPrincipal\Horarios\Horarios\obj\Debug\netcoreapp2.1\Razor\Views\HorarioDisciplinas\Edit.g.cshtml.cs
 C:\Users\Utilizador\Desktop\ProjetoPrincipal\Horarios\Horarios\obj\Debug\netcoreapp2.1\Razor\Views\HorarioDisciplinas\Index.g.cshtml.cs
+C:\Users\Utilizador\Desktop\ProjetoPrincipal\Horarios\Horarios\obj\Debug\netcoreapp2.1\Razor\Views\TipoProvas\Create.g.cshtml.cs
+C:\Users\Utilizador\Desktop\ProjetoPrincipal\Horarios\Horarios\obj\Debug\netcoreapp2.1\Razor\Views\TipoProvas\Delete.g.cshtml.cs
+C:\Users\Utilizador\Desktop\ProjetoPrincipal\Horarios\Horarios\obj\Debug\netcoreapp2.1\Razor\Views\TipoProvas\Details.g.cshtml.cs
+C:\Users\Utilizador\Desktop\ProjetoPrincipal\Horarios\Horarios\obj\Debug\netcoreapp2.1\Razor\Views\TipoProvas\Edit.g.cshtml.cs
+C:\Users\Utilizador\Desktop\ProjetoPrincipal\Horarios\Horarios\obj\Debug\netcoreapp2.1\Razor\Views\TipoProvas\Index.g.cshtml.cs

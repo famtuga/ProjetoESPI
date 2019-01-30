@@ -1,0 +1,30 @@
+﻿@model Horarios.Models.HorarioDisciplina
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>HorarioDisciplina</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Horario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Horario.HorarioId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Disciplina)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Disciplina.DisciplinaId)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Voltar ao menu anterior</a>
+</div>

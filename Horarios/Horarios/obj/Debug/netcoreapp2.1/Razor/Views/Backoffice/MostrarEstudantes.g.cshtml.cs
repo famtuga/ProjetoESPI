@@ -23,8 +23,13 @@ using Horarios.Models;
 
 #line default
 #line hidden
+#line 3 "C:\Users\Utilizador\Desktop\ProjetoPrincipal\Horarios\Horarios\Views\_ViewImports.cshtml"
+using Horarios.Models.ViewModels;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c413b30a0d191182c3ca0d5a2f019ba09aa0b746", @"/Views/Backoffice/MostrarEstudantes.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"05b9414be4159e7a80efa14ee9d63690903c1eb1", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d29bd2f65bf33ae6b21504e261012503ee463161", @"/Views/_ViewImports.cshtml")]
     public class Views_Backoffice_MostrarEstudantes : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Horarios.Models.Estudante>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Edit", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -168,7 +173,7 @@ using Horarios.Models;
             WriteLiteral("\r\n                                </td>\r\n                               \r\n                                <td>\r\n                                    <button class=\"btn btn-toolbar\">\r\n                                        ");
             EndContext();
             BeginContext(2487, 64, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5c60444578cc45f08a33f61ba1beec61", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a2b5f802c0734501b0554939ab52681e", async() => {
                 BeginContext(2541, 6, true);
                 WriteLiteral("Editar");
                 EndContext();
@@ -203,7 +208,7 @@ using Horarios.Models;
             WriteLiteral("\r\n                                    </button> |\r\n                                    <button class=\"btn btn-default\">\r\n                                        ");
             EndContext();
             BeginContext(2712, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "de99528b37484f108fad1acdb41b8d29", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a2c2dde8cdb84cf29017c92798ff2fa8", async() => {
                 BeginContext(2769, 8, true);
                 WriteLiteral("Detalhes");
                 EndContext();

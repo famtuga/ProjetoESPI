@@ -1,0 +1,58 @@
+﻿@model Horarios.Models.Horario
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Editar</h2>
+
+<h4>Horario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="HorarioId" />
+            <div class="form-group">
+                <label asp-for="NomeProva" class="control-label"></label>
+                <input asp-for="NomeProva" class="form-control" />
+                <span asp-validation-for="NomeProva" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Datainicio" class="control-label"></label>
+                <input asp-for="Datainicio" class="form-control" />
+                <span asp-validation-for="Datainicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="DiaInteiro" /> @Html.DisplayNameFor(model => model.DiaInteiro)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Datafim" class="control-label"></label>
+                <input asp-for="Datafim" class="form-control" />
+                <span asp-validation-for="Datafim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ano" class="control-label"></label>
+                <input asp-for="Ano" class="form-control" max="3" min="1"/>
+                <span asp-validation-for="Ano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar ao menu anterior</a>
+</div>
+

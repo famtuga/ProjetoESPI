@@ -1,0 +1,45 @@
+﻿@model Horarios.Models.Professor
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Apagar</h2>
+
+<h3>Tem a certeza que pretende eliminar?</h3>
+<div>
+    <h4>Professor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Idade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Idade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telemovel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telemovel)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ProfessorId" />
+        <input type="submit" value="Apagar" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar ao menu anterior</a>
+    </form>
+</div>

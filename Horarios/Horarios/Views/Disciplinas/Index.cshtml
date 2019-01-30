@@ -1,0 +1,100 @@
+﻿@model DisciplinasViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Lista</h2>
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Procurar:
+            <input type="text" name="SearchString" value="@Model.PagingInfo.CurrentFilter" />
+            <input type="submit" value="Pesquisar" class="btn btn-success" />
+            <a asp-action="Index" class="btn btn-info">Limpar</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.ActionLink(
+                Html.DisplayNameFor(model => model.Disciplinas.FirstOrDefault().Nome), //Texto do link
+                "Index", // Action
+                new { // Valores da rota, ex: ?sortOrder=Nome
+                    @sortOrder = Html.DisplayNameFor(model => model.Disciplinas.FirstOrDefault().Nome), // Campo da Ordenação
+                    @sortAsc =!Model.PagingInfo.Ascending, // Ordenação
+                    @page = Model.PagingInfo.CurrentPage, // Numero da pagina
+                    @searchString = Model.PagingInfo.CurrentFilter // Texto a Pesquisar
+                })
+            </th>
+            <th>
+                @Html.ActionLink(
+                        Html.DisplayNameFor(model => model.Disciplinas.FirstOrDefault().Ano),
+                        "Index",
+                        new {
+                            @sortOrder = Html.DisplayNameFor(model => model.Disciplinas.FirstOrDefault().Ano),
+                            @sortAsc =!Model.PagingInfo.Ascending,
+                            @page = Model.PagingInfo.CurrentPage,
+                            @searchString = Model.PagingInfo.CurrentFilter
+                        })
+            </th>
+            <th>
+                @Html.ActionLink(
+                        Html.DisplayNameFor(model => model.Disciplinas.FirstOrDefault().Professor),
+                        "Index",
+                        new {
+                            @sortOrder = Html.DisplayNameFor(model => model.Disciplinas.FirstOrDefault().Professor),
+                            @sortAsc =!Model.PagingInfo.Ascending,
+                            @page = Model.PagingInfo.CurrentPage,
+                            @searchString = Model.PagingInfo.CurrentFilter
+                        })
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Disciplinas)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ano)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Professor.Nome)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.DisciplinaId">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.DisciplinaId">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.DisciplinaId">Apagar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.PagingInfo.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.PagingInfo.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@Model.PagingInfo.CurrentSort"
+   asp-route-sortAsc="@Model.PagingInfo.Ascending"
+   asp-route-page="@(Model.PagingInfo.CurrentPage-1)"
+   asp-route-searchString="@Model.PagingInfo.CurrentFilter"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@Model.PagingInfo.CurrentSort"
+   asp-route-sortAsc="@Model.PagingInfo.Ascending"
+   asp-route-page="@(Model.PagingInfo.CurrentPage+1)"
+   asp-route-searchString="@Model.PagingInfo.CurrentFilter"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>

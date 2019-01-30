@@ -1,0 +1,54 @@
+﻿@model Horarios.Models.Horario
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Horario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeProva)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomeProva)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Datainicio)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Datainicio)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaInteiro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DiaInteiro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Datafim)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Datafim)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.HorarioId">Editar</a> |
+    <a asp-action="Index">Voltar ao menu anterior</a>
+</div>

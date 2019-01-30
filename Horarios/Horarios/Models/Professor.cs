@@ -14,18 +14,19 @@ namespace Horarios.Models
         public int ProfessorId { get; set; }
 
         [StringLength(80, MinimumLength = 2)]
-        [Required(ErrorMessage = "Introduza o nome do professor ")]
-        [RegularExpression(@"([A-Za-záàâãéèêíóôõúçÁÀÂÃÉÈÍÓÔÕÚÇ\s]+)", ErrorMessage = "Só é aceitavel caracteres alfabeticos ")]
+        [Required(ErrorMessage = "Introduza o nome do professor!")]
+        [RegularExpression(@"([A-Za-z áàâãéèêíóôõúçÁÀÂÃÉÈÍÓÔÕÚÇ\s]+)", ErrorMessage = "Só é aceitavel caracteres alfabeticos ")]
         public string Nome { get; set; }
 
         [DataType(DataType.EmailAddress)]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "Campo Email inválido!")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Range(20,80)]
+        [Range(18,80,ErrorMessage ="Campo Idade inválido!")]
         public int Idade { get; set; }
 
+        [RegularExpression(@"(^(91|92|93|96)([\d]{7}))")]
         public string Telemovel { get; set; }
 
         public ICollection<Disciplina> Disciplinas { get; set; }

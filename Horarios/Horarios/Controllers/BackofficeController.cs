@@ -23,7 +23,7 @@ namespace Horarios.Controllers
         }
 
 
-        [Authorize]
+        [Authorize(Roles = "Administrador, Professor, Estudante")]
         public IActionResult Index(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
@@ -68,7 +68,7 @@ namespace Horarios.Controllers
 
 
 
-        [Authorize ]
+        [Authorize]
         [HttpPost]
         public JsonResult SaveEvent(Horario h)
         {

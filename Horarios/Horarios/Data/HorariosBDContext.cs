@@ -17,6 +17,7 @@ namespace Horarios.Data
         public virtual DbSet<Professor> Professor { get; set; }
         public virtual DbSet<Horario> Horario { get; set; }
         public virtual DbSet<HorarioDisciplina> HorarioDisciplina { get; set; }
+        public virtual DbSet<TipoProva> TipoProva { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -44,6 +45,7 @@ namespace Horarios.Data
                 entity.Property(e => e.Ano).HasColumnName("Ano");
 
             });
+
 
            modelBuilder.Entity<Horario>(entity =>
             {

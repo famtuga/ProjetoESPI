@@ -35,7 +35,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Horarios</a>
+                <a class="navbar-brand" asp-action="Index" asp-controller="Backoffice">Horarios</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
@@ -51,13 +51,6 @@
                         <li>
                             <partial name="_LoginPartial" />
                         </li>
-                        @*<li>
-                                <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                            </li>*@
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
@@ -72,18 +65,14 @@
 
                         <!--Menu Home-->
                         <li>
-                            <a href="/backoffice/index"><i class="fa fa-home fa-fw"></i>Home</a>
+                            <a asp-action="Index" asp-controller="Backoffice"><i class="fa fa-home fa-fw"></i>Home</a>
                         </li>
-                        @*<li>
-            <a asp-area="Identity" asp-page="/Account/Register">Register</a>
-
-        </li>*@
                         <!--Menu Administração-->
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Administração<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="/backoffice/marcacao">Marcação de provas</a>
+                                    <a asp-action="Marcacao" asp-controller="Backoffice">Marcação de provas</a>
                                 </li>
                                 <li>
                                     <a asp-area="Identity" asp-page="/Account/Register">Registar</a>
@@ -98,10 +87,10 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Disciplinas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a asp-controller="Disciplinas" asp-action="Create">Adicionar Disciplinas</a>
+                                    <a asp-controller="Disciplinas" asp-action="Index">Visualizar Disciplinas</a>
                                 </li>
                                 <li>
-                                    <a asp-controller="Disciplinas" asp-action="Index">Visualizar Disciplinas</a>
+                                    <a asp-controller="Disciplinas" asp-action="Create">Adicionar Disciplinas</a>
                                 </li>
                             </ul>
                         </li>
@@ -117,12 +106,26 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Tipos de Provas<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a asp-controller="TipoProvas" asp-action="Index">Visualizar Tipos de Provas</a>
+                                </li>
+                                <li>
+                                    <a asp-controller="TipoProvas" asp-action="Create">Criar Tipos de Provas</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Horarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a asp-controller="Backoffice" asp-action="Index">Visualizar Provas</a>
+                                    <a asp-controller="Horarios" asp-action="Index">Listar Provas</a>
                                 </li>
-                                
+                                <li>
+                                    <a asp-controller="Horarios" asp-action="Create">Criar Provas</a>
+                                </li>
+
                             </ul>
                         </li>
                     </ul>

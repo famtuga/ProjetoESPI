@@ -187,7 +187,19 @@
 
             $('#btnEdit').click(function () {
                 //Open modal dialog for edit event
-                openAddEditForm();
+                //openAddEditForm();
+                if (selectedEvent !== null) {
+                    $('#hdEventID').val(selectedEvent.HorarioId);
+                    $('#txtSubject').val(selectedEvent.title);
+                    $('#txtStart').val('');
+                    $('#chkIsFullDay').prop("checked", selectedEvent.allDay || false);
+                    $('#chkIsFullDay').change();
+                    $('#txtEnd').val('');
+                    $('#txtDescription').val(selectedEvent.description);
+                    $('#ddThemeColor').val(selectedEvent.color);
+                }
+                $('#myModal').modal('hide');
+                $('#myModalSave').modal();
             })
             $('#btnDelete').click(function () {
                 if (selectedEvent !== null && confirm('Tem a certeza?')) {
