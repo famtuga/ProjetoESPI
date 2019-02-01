@@ -23,7 +23,7 @@ namespace Horarios.Controllers
         // GET: Horarios
         public IActionResult Index(string searchString, string sortOrder, bool sortAsc, int page = 1)
         {
-            var horariosBDContext = _context.Horario.ToList();
+            var horariosBDContext = _context.Horario.Include(d => d.TipoProva).ToList();
             if (!String.IsNullOrEmpty(searchString))
             {
                 horariosBDContext = horariosBDContext.Where(s => s.Ano.ToString().ToLower().Contains(searchString.ToLower()) || s.NomeProva.ToLower().Contains(searchString.ToLower())).ToList();
@@ -74,11 +74,11 @@ namespace Horarios.Controllers
                 case "Descricao":
                     if (sortAsc)
                     {
-                        horariosBDContext = horariosBDContext.OrderBy(d => d.Descricao).ToList();
+                        horariosBDContext = horariosBDContext.OrderBy(d => d.TipoProva.Nome).ToList();
                     }
                     else
                     {
-                        horariosBDContext = horariosBDContext.OrderByDescending(d => d.Descricao).ToList();
+                        horariosBDContext = horariosBDContext.OrderByDescending(d => d.TipoProva.Nome).ToList();
                     }
                     break;
                 case "Ano":
@@ -113,7 +113,7 @@ namespace Horarios.Controllers
                 return NotFound();
             }
 
-            var horario = await _context.Horario
+            var horario = await _context.Horario.Include(d => d.TipoProva)
                 .FirstOrDefaultAsync(m => m.HorarioId == id);
             if (horario == null)
             {
@@ -127,7 +127,10 @@ namespace Horarios.Controllers
         public IActionResult Create()
         {
             ViewData["Disciplinas"] = new SelectList(_context.Disciplina, "Nome", "Nome");
-            ViewData["TipoProva"] = new SelectList(_context.TipoProva, "Descricao", "Descricao");
+            //ViewData["TipoProva"] = new SelectList(_context.TipoProva, "Descricao", "Descricao");
+            ViewData["TipoProvaID"] = new SelectList(_context.TipoProva, "TipoProvaID", "Nome");
+
+
             return View();
         }
 
@@ -136,16 +139,19 @@ namespace Horarios.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HorarioId,NomeProva,Datainicio,DiaInteiro,Datafim,Descricao,Ano")] Horario horario)
+        public async Task<IActionResult> Create([Bind("HorarioId,NomeProva,Datainicio,DiaInteiro,Datafim,Descricao,Ano,TipoProvaID")] Horario horario)
         {
             if (ModelState.IsValid)
             {
+                horario.TipoProva = _context.TipoProva.Find(horario.TipoProvaID);
                 _context.Add(horario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["Disciplinas"] = new SelectList(_context.Disciplina, "Nome", "Nome");
-            ViewData["TipoProva"] = new SelectList(_context.TipoProva, "Descricao", "Descricao");
+            ViewData["TipoProvaID"] = new SelectList(_context.TipoProva, "TipoProvaID", "Nome", horario.TipoProvaID);
+
+
             return View(horario);
         }
 
@@ -162,6 +168,8 @@ namespace Horarios.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["TipoProvaID"] = new SelectList(_context.TipoProva, "TipoProvaID", "Nome");
             return View(horario);
         }
 
@@ -170,7 +178,7 @@ namespace Horarios.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("HorarioId,NomeProva,Datainicio,DiaInteiro,Datafim,Descricao,Ano")] Horario horario)
+        public async Task<IActionResult> Edit(int id, [Bind("HorarioId,NomeProva,Datainicio,DiaInteiro,Datafim,Descricao,Ano,TipoProvaID")] Horario horario)
         {
             if (id != horario.HorarioId)
             {
@@ -181,6 +189,7 @@ namespace Horarios.Controllers
             {
                 try
                 {
+                    horario.TipoProva = _context.TipoProva.Find(horario.TipoProvaID);
                     _context.Update(horario);
                     await _context.SaveChangesAsync();
                 }
@@ -197,6 +206,8 @@ namespace Horarios.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewData["TipoProvaID"] = new SelectList(_context.TipoProva, "TipoProvaID", "Nome", horario.TipoProvaID);
             return View(horario);
         }
 
@@ -208,7 +219,7 @@ namespace Horarios.Controllers
                 return NotFound();
             }
 
-            var horario = await _context.Horario
+            var horario = await _context.Horario.Include(h=>h.TipoProva)
                 .FirstOrDefaultAsync(m => m.HorarioId == id);
             if (horario == null)
             {

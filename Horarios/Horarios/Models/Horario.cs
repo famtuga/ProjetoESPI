@@ -26,12 +26,14 @@ namespace Horarios.Models
         [DataType(DataType.DateTime, ErrorMessage = "Campo Data Fim inválido!")]
         public DateTime? Datafim { get; set; }
 
-        [Required(ErrorMessage = "Campo Tipo de Prova inválido!")]
-        public string Descricao { get; set; }
-
         [Required(ErrorMessage = "Campo Ano inválido!")]
         [Range(1, 3, ErrorMessage = "Campo Ano inválido!")]
         public int Ano { get; set; }
+
+        [ForeignKey("FK_TipoProvaID")]
+        public int TipoProvaID { get; set; }
+
+        public TipoProva TipoProva { get; set; }
 
         public ICollection<HorarioDisciplina> HorarioDisciplina { get; set; }
 

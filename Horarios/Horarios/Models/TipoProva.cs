@@ -20,5 +20,7 @@ namespace Horarios.Models
 
         [StringLength(200,ErrorMessage ="Campo Descrição demasiado grande!")]
         public string Descricao { get; set; }
+
+        public ICollection<Horario> Horarios { get; set; }
     }
 }

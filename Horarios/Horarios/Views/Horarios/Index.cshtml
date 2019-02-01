@@ -66,10 +66,10 @@
             </th>
             <th>
                 @Html.ActionLink(
-                    Html.DisplayNameFor(model => model.Horarios.FirstOrDefault().Descricao),
+                    Html.DisplayNameFor(model => model.Horarios.FirstOrDefault().TipoProva.Descricao),
                     "Index",
                     new {
-                        @sortOrder = Html.DisplayNameFor(model => model.Horarios.FirstOrDefault().Descricao),
+                        @sortOrder = Html.DisplayNameFor(model => model.Horarios.FirstOrDefault().TipoProva.Descricao),
                         @sortAsc =!Model.PagingInfo.Ascending,
                         @page = Model.PagingInfo.CurrentPage,
                         @searchString = Model.PagingInfo.CurrentFilter
@@ -93,31 +93,31 @@
     <tbody>
         @foreach (var item in Model.Horarios)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NomeProva)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Datainicio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DiaInteiro)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Datafim)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descricao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ano)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.HorarioId">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.HorarioId">Detalhes</a> |
-                    <a asp-action="Delete" asp-route-id="@item.HorarioId">Apagar</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeProva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Datainicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaInteiro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Datafim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoProva.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ano)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.HorarioId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.HorarioId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.HorarioId">Apagar</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

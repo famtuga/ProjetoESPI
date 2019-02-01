@@ -89,7 +89,7 @@ using Horarios.Models.ViewModels;
 ");
             EndContext();
             BeginContext(478, 2030, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8b0c716d4bdd4b248016663615cb3078", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "571e89ee1f014611a8912fee84296eb7", async() => {
                 BeginContext(543, 184, true);
                 WriteLiteral("\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <section class=\"page col-sm-12\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-lg-12\">\r\n");
                 EndContext();
@@ -139,7 +139,7 @@ using Horarios.Models.ViewModels;
                 WriteLiteral("&nbsp;&nbsp;&nbsp;\r\n                                            </td>\r\n                                            <td><button class=\"btn btn-toolbar\">");
                 EndContext();
                 BeginContext(1894, 69, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0836231481854651bbded90043ff0419", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f73a7b223e7d4a36833fa04e07eacd92", async() => {
                     BeginContext(1953, 6, true);
                     WriteLiteral("Editar");
                     EndContext();
@@ -185,7 +185,7 @@ using Horarios.Models.ViewModels;
                 WriteLiteral("                        <div class=\"form-group\">\r\n\r\n                            <button class=\"btn btn-info\">");
                 EndContext();
                 BeginContext(2317, 37, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "96b9430323dc47d78d60af471aeb31be", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0d016ceac4d1448c8d0587021ff13147", async() => {
                     BeginContext(2336, 14, true);
                     WriteLiteral("Voltar à lista");
                     EndContext();

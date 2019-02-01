@@ -145,10 +145,6 @@ namespace Horarios.Migrations
                     b.Property<DateTime>("Datainicio")
                         .HasColumnName("Datainicio");
 
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnName("Descricao");
-
                     b.Property<bool>("DiaInteiro")
                         .HasColumnName("DiaInteiro");
 
@@ -156,7 +152,12 @@ namespace Horarios.Migrations
                         .IsRequired()
                         .HasColumnName("NomeProva");
 
+                    b.Property<int>("TipoProvaID")
+                        .HasColumnName("TipoProvaID");
+
                     b.HasKey("HorarioId");
+
+                    b.HasIndex("TipoProvaID");
 
                     b.ToTable("Horario");
                 });
@@ -346,6 +347,14 @@ namespace Horarios.Migrations
                     b.HasOne("Horarios.Models.Estudante", "Estudante")
                         .WithMany("EstudanteDisciplina")
                         .HasForeignKey("EstudanteId1");
+                });
+
+            modelBuilder.Entity("Horarios.Models.Horario", b =>
+                {
+                    b.HasOne("Horarios.Models.TipoProva", "TipoProva")
+                        .WithMany("Horarios")
+                        .HasForeignKey("TipoProvaID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Horarios.Models.HorarioDisciplina", b =>

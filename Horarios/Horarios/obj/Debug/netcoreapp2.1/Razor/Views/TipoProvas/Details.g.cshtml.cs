@@ -109,7 +109,7 @@ using Horarios.Models.ViewModels;
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n</div>\r\n<div>\r\n    ");
             EndContext();
             BeginContext(545, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c39878da7714ce4b2b1e3f778a93afb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0b550693a9964f45932a8ee5f57e1e9f", async() => {
                 BeginContext(600, 6, true);
                 WriteLiteral("Editar");
                 EndContext();
@@ -144,7 +144,7 @@ using Horarios.Models.ViewModels;
             WriteLiteral(" |\r\n    ");
             EndContext();
             BeginContext(618, 49, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "68272ae563074ffab10588065fa1c59b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3869c72b8b9d453ab201599ce2b7f652", async() => {
                 BeginContext(640, 23, true);
                 WriteLiteral("Voltar ao menu anterior");
                 EndContext();

@@ -28,9 +28,11 @@ namespace Horarios.Data
 
             modelBuilder.Entity<Disciplina>(entity =>
             {
+
                 entity.HasOne(d => d.Professor)
-                    .WithMany(p => p.Disciplinas)
-                    .HasForeignKey(p => p.ProfessorId);
+                   .WithMany(p => p.Disciplinas)
+                   .HasForeignKey(p => p.ProfessorId);
+
 
                 entity.HasMany(ed => ed.HorarioDisciplinas)
                     .WithOne(e => e.Disciplina)
@@ -46,10 +48,16 @@ namespace Horarios.Data
 
             });
 
+            
 
-           modelBuilder.Entity<Horario>(entity =>
+                modelBuilder.Entity<Horario>(entity =>
             {
                 entity.HasKey(e => e.HorarioId);
+
+
+                entity.HasOne(d => d.TipoProva)
+                    .WithMany(p => p.Horarios)
+                    .HasForeignKey(p => p.TipoProvaID);
 
                 entity.HasMany(ed => ed.HorarioDisciplina)
                 .WithOne(d => d.Horario)
@@ -63,7 +71,7 @@ namespace Horarios.Data
 
                 entity.Property(e => e.Datafim).HasColumnName("Datafim");
 
-                entity.Property(e => e.Descricao).HasColumnName("Descricao");
+                entity.Property(e => e.TipoProvaID).HasColumnName("TipoProvaID");
 
                 entity.Property(e => e.Ano).HasColumnName("Ano");
             });

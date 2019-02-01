@@ -84,7 +84,7 @@ namespace Horarios.Controllers
                         v.NomeProva = h.NomeProva;
                         v.Datainicio = h.Datainicio;
                         v.Datafim =  h.Datafim;
-                        v.Descricao = h.Descricao;
+                        v.TipoProvaID = h.TipoProvaID;
                         v.DiaInteiro = h.DiaInteiro;
                         v.Ano = h.Ano;
                     }

@@ -167,6 +167,7 @@ namespace Horarios.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["ProfessorId"] = new SelectList(_context.Professor, "ProfessorId", "Nome", disciplina.ProfessorId);
             return View(disciplina);
         }
